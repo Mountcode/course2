@@ -5,3 +5,37 @@ npm i webpack webpack-cli webpack-dev-server -D
 
 // -D то же самое что и -save-dev //
 
+Webpack запускается быстрее галпа. Он сразу подрубает сборщик и browsersync
+Но сначала нужн осоздать файл конфига в корне - webpack.config.js допустим такого вида:
+let path = require('path'); //просто переменная с полным путем до папки
+
+let conf = {
+	entry: './app/js/scripts.js',
+	output: {
+		path: path.resolve(__dirname, './js'),
+		filename: 'main.js',
+		publicPath: 'js/'
+	}
+};
+
+module.exports = conf;
+
+И описать ему команды на запуск, в файле packaje.json добавить:
+"scripts": {
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+},
+
+Запуск: npm run build
+
+Далее установка babel
+npm install -D babel-loader @babel/core @babel/preset-env
+
+Затем,для подключения модулей, создать файл настройки babel в корне - .babelrc с содердимым:
+{
+	"presets": [
+		"@babel/preset-env"
+	]
+}
+Файл .babelrc может гибко настраиваться и вообще модули постоянно меняются т.к. экспериментальные функции JS любо вылетают из пользования либо становятся практикующимися. 
+
