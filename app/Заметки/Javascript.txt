@@ -1,0 +1,117 @@
+***************************************
+
+JAVASCRIPT
+
+***************************************
+
+
+i += 2; Увеличить i от его текущего значения на 2
+
+ЗАПОМНИ ЭТО ОЧЕНЬ ВАЖНО! Создаем массив с чем угодно для работы и перебираем его так:
+
+задать i; посчитать i(перем массив с каторым работаем); добавить i;
+for( var i = 0; i < link.length; i++){
+        link[i] = ...
+}
+
+*****Массив считается от единицы
+
+***** Через точку всегда обращаемся к ключу объекта. Например- console.log 
+querySelectorAll
+
+
+document.body.addEventListener('click', some );
+
+
+**** VARIABLE.classList.remove('showed');
+
+**** VARIABLE.classList.add('showed');
+
+function some(e){
+    console.log('tot');
+};
+
+
+for (var i - 0; i < buttons.length; i++){
+        
+}
+
+
+
+for(var k in this){
+//        document.body.innerHTML += '<strong>' + k + '</strong> ' + this[k] + '<br/>';
+//    }
+
+
+*************************
+var modalSummoner = document.querySelector('.openmodal');
+    
+modalSummoner.onclick = function(e){ 
+    console.log('sdf')
+    e.preventDefault();
+};
+
+************************************
+
+Это проверка переменной на то, является ли она просто строкой или уже элементом DOM.
+если в JQuery передать ('.class') - то это строка которую он потом делаем элементом DOM с помощью querySelectorAll. А если передать (this) - то это сразу элемент DOM. И что бы не было ошибки нужно проверить и решить использовать querySelectorAll или нет.
+
+if(variable instanceof HTMLElement){
+
+}
+
+
+
+**********************************
+CALLBACK
+Пишется в кинце работы функции. Это дает возможность, при завершении функции, попросить ее сразу запустить любую другую. При этом callback передается как один из параметров функции. При этом callback надо правильно задавать в функции которая его вызывает. Нужно помнить о контекте и вызывать колбэк в тож же контексте с которым работала функция. Пример:
+
+function cb(elem,callback){
+    var elem2 = document.querySelectorAll(elem);
+    var func = callback || function(){};
+    console.log('Функция начинает что то делать')
+    
+    setTimeout(function(elem){
+        
+        callback.call(elem2);
+        
+    },1000) 
+}
+
+window.onload = function(e){
+    cb('.box',function(){
+       console.log('А когда закончила вызвала другую функцию');
+    });
+}
+
+Подытожем:
+callback(); - Вызывает функцию в контексте Window. Из любого места, из любой другой функции
+callback.call(elem2); - вызывает функцию из того контекста что мы передадим в elem2
+
+
+
+Это пример 2 который лучше показывает сохранение контекта
+
+function cb(callback){
+    console.log('Функция начинает что то делать')
+    console.log(this)
+
+    var func = callback || function(){};
+    elem = this;
+    
+    setTimeout(function(){
+        callback.call(elem);
+    },1000) 
+}
+
+window.onload = function(e){
+    
+    document.querySelector('.box').onclick = function(){
+        cb.call(this,function(){
+            console.log(this);
+        });
+    };
+};
+
+/////////////=======================/////////////////////
+/////////////=======================/////////////////////

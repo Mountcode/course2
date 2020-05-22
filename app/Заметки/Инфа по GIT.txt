@@ -1,0 +1,39 @@
+Начало работы
+git init
+
+Статус репозитория
+git status
+
+Добавить файлы в проект
+git add *    - это добавить сразу все
+
+Фиксирование состояния (коммит)
+git commit -m "it my first 1"
+
+
+Далее нужно создать новый проект на сайт Github. Зайти в профиль, создать проект, дать ему название. После создания он даст подсказку
+
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:Mountcode/test_chamber.git
+git push -u origin master
+
+С этой подсказкой нужно связать свой проект с проектом на сервере вот так:
+git remote add origin git@github.com:Mountcode/test_chamber.git
+
+
+Далее, после рабботы, после создания коммитов(обязательно) можно залить прокт на сервере(запушить)
+git push -u origin master
+
+
+Тут возможно будет проблема с SSH ключем. Решается так:
+В консоле создать ключ у себя:
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+Инициализировать ключ:
+$ ssh-add ~/.ssh/id_rsa
+
+Далее сходить по адресу в папку  - /c/Users/*ЮЗЕР*/.ssh/id_rsa 
+Скопировать там содержимое файла - id_rsa.pub
+
+Зайти на сайте github в аккаунт/настройки/SSH keys and GPG keys и создать там новый SSH ключ скопировав туда содержимое файла id_rsa.pub.

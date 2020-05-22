@@ -1,0 +1,26 @@
+***************************************
+
+PHP
+
+***************************************
+
+Пример создания файла с данными полученными по POST
+
+file_put_contents('apps.txt',"$dt $email $phone $name \n", FILE_APPEND);
+
+//
+
+Пример получения данных от AJAX запроса
+
+$email = trim($_POST['email']);
+$phone = trim($_POST['phone']);
+$name = trim($_POST['name']);
+
+
+//
+
+sleep(2); - функция приостановки выполнения кода
+
+//
+
+echo json_encode($errors) - вывод массива $errors в виде JSON

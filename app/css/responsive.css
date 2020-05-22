@@ -1,0 +1,15 @@
+@media screen and (max-device-width: 765px) {
+  .mobile_100 {
+    width: 100%;
+    padding: 0px;
+  }
+  .mobile_50 {
+    width: 50%;
+  }
+  .mobile_none {
+    display: none;
+  }
+  .container {
+    max-width: 100%;
+  }
+}

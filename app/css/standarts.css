@@ -1,0 +1,393 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  outline: none!important;
+}
+select {
+  font-size: 12px;
+  position: relative;
+  outline: none;
+  padding: 8px;
+  color: #8C8C8C;
+  border: 1px solid #F0F0F0;
+  background: #fff;
+  -moz-box-box-shadow: inset 0 0 0 1px #fff, 1px 2px 0px #F0F0F0;
+  -webkit-box-shadow: inset 0 0 0 1px #fff, 1px 2px 0px #F0F0F0;
+  box-shadow: inset 0 0 0 1px #fff, 1px 2px 0px #F9F9F9;
+}
+select:hover {
+  cursor: pointer;
+}
+.gr1 {
+  background: #8f62d9;
+  background: -webkit-linear-gradient(left, #8f62d9 0%, #734bb3 100%);
+  background: -o-linear-gradient(left, #8f62d9 0%, #734bb3 100%);
+  background: linear-gradient(to right, #8f62d9 0%, #734bb3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f62d9', endColorstr='#734bb3', GradientType=1);
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latothin.woff') format("woff"), url('../fonts/lato/latothin.woff2') format("woff2"), url('../fonts/lato/latothin.ttf') format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latolight.woff') format("woff"), url('../fonts/lato/latolight.woff2') format("woff2"), url('../fonts/lato/latolight.ttf') format("truetype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latoregular.woff') format("woff"), url('../fonts/lato/latoregular.woff2') format("woff2"), url('../fonts/lato/latoregular.ttf') format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latoitalic.woff') format("woff"), url('../fonts/lato/latoitalic.woff2') format("woff2"), url('../fonts/lato/latoitalic.ttf') format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latomedium.woff') format("woff"), url('../fonts/lato/latomedium.woff2') format("woff2"), url('../fonts/lato/latomedium.ttf') format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latosemibold.woff') format("woff"), url('../fonts/lato/latosemibold.woff2') format("woff2"), url('../fonts/lato/latosemibold.ttf') format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/lato/latobold.woff') format("woff"), url('../fonts/lato/latobold.woff2') format("woff2"), url('../fonts/lato/latobold.ttf') format("truetype");
+  font-weight: 600;
+}
+.main_font {
+  font-family: 'Lato';
+  font-weight: 300;
+}
+.text_standart {
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 125%;
+  color: #454545;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sb {
+  justify-content: space-between;
+}
+.center {
+  align-items: center;
+}
+.baseline {
+  align-items: baseline;
+}
+.ct {
+  justify-content: center;
+}
+.fe {
+  justify-content: flex-end;
+}
+.fs {
+  justify-content: flex-start;
+}
+.simple_row {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+div[class*="col_"] {
+  padding: 0 20px;
+}
+.col_1 {
+  width: 8.33333333%;
+}
+.col_2 {
+  width: 16.66666667%;
+}
+.col_3 {
+  width: 25%;
+}
+.col_4 {
+  width: 33.33333333%;
+}
+.col_5 {
+  width: 41.666667%;
+}
+.col_6 {
+  width: 50%;
+}
+.col_7 {
+  width: 58.33333333%;
+}
+.col_8 {
+  width: 66.66666667%;
+}
+.col_9 {
+  width: 75%;
+}
+.col_10 {
+  width: 83.33333333%;
+}
+.col_15 {
+  width: 20%;
+}
+strong {
+  font-weight: 600;
+}
+.content_box {
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 125%;
+  color: #454545;
+}
+.content_box p {
+  margin-bottom: 25px;
+}
+.form_control input,
+.form_control textarea {
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 125%;
+  color: #454545;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #000;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+.form_control input:focus,
+.form_control textarea:focus {
+  outline: none;
+  border-color: #fff;
+}
+::-webkit-input-placeholder {
+  color: #635d53;
+}
+::-moz-placeholder {
+  color: #635d53;
+}
+/* Firefox 19+ */
+:-moz-placeholder {
+  color: #635d53;
+}
+/* Firefox 18- */
+:-ms-input-placeholder {
+  color: #635d53;
+}
+.s_button,
+.form_control .s_button {
+  cursor: pointer;
+  padding: 5px 15px;
+  border: 1px solid;
+  background: none;
+  display: inline-block;
+  width: inherit;
+  background: #85EC48;
+}
+.s_button.white,
+.form_control .s_button.white {
+  border-color: #fff;
+  color: #fff;
+}
+.s_button:hover,
+.form_control .s_button:hover {
+  background: #734BB3;
+}
+.owl_style {
+  overflow: hidden;
+  position: relative;
+}
+.owl_style .owl-item {
+  display: inline-block;
+}
+.owl_style .owl-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 60;
+  width: 100%;
+  text-align: center;
+}
+.owl_style .owl-dots.disabled {
+  display: none;
+}
+.owl_style .owl-dots .owl-dot {
+  display: inline-block;
+  margin: 0 6px;
+}
+.owl_style .owl-dots .owl-dot span {
+  display: block;
+  height: 12px;
+  width: 12px;
+  background: #816f6b;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.owl_style .owl-dots .owl-dot.active span,
+.owl_style .owl-dots .owl-dot:hover span {
+  background: #85EC48;
+  box-shadow: 1px 1px 10px rgba(133, 236, 72, 0.7);
+}
+.owl_style .owl-nav {
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  left: 0;
+}
+.owl_style .owl-nav.disabled {
+  display: none;
+}
+.owl_style .owl-nav .owl-prev,
+.owl_style .owl-nav .owl-next {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 68px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.owl_style .owl-nav .owl-prev:hover,
+.owl_style .owl-nav .owl-next:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.owl_style .owl-nav .owl-prev {
+  left: 10%;
+}
+.owl_style .owl-nav .owl-next {
+  transform: rotate(180deg);
+  right: 10%;
+}
+.fancybox-container {
+  z-index: 600!important;
+}

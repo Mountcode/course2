@@ -1,0 +1,104 @@
+//PROJECT VARIABLES
+@import "standarts.less"; 
+
+img {
+    max-width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+*:focus {
+    outline: none;
+}
+
+
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+//STYLE
+body {
+    .text_standart;
+    min-height: 800px;
+}
+
+.container{
+    width: 60%;
+    margin: 80px auto;
+}
+
+.modal_cover{
+    opacity: 0;
+    transition: .3s;
+     .opened{
+        opacity: 1;
+         .modal_content{
+             display: block;
+         }
+    }
+}
+.modal_content{
+    display: none;
+    opacity: 0;
+    transition: .3s;
+    max-width: 400px;
+    &.opened{
+        display: block;
+        opacity: 1;
+    }
+}
+
+.modalOverhide{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: .3s;
+    .modalWrapper{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .modal_content{
+        opacity: 1;
+        display: block;
+    }
+}
+
+.openmodal{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
