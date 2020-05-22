@@ -1,0 +1,7 @@
+Инициализация нового проекта
+npm init -y
+Установка webpack
+npm i webpack webpack-cli webpack-dev-server -D
+
+// -D то же самое что и -save-dev //
+
