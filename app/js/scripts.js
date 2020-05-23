@@ -3,6 +3,10 @@ window.addEventListener('load',function(){
 	console.log(timer1);
 })
 
+wer = 34;
+console.log('sdfsdf'); 
+
+
 class Timer{
 	constructor(el, time){
 			this.el = el;
@@ -12,8 +16,8 @@ class Timer{
 			this.start();
 	}
 
-	start(){
-			this._interval = setInterval(this.tick, 1000);
+	start(){ 
+			this._interval = window.setInterval(this.tick, 1000);
 	}
 
 	stop(){

@@ -1,6 +1,6 @@
 let path = require('path'); //просто переменная с полным путем до папки
 
-let conf = {
+let conf = { 
 	entry: './app/js/scripts.js',
 	output: {
 		path: path.resolve(__dirname, './js'),
