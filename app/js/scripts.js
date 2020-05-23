@@ -1,11 +1,37 @@
-window.onload = function(e){
-	console.log('33');
-	var a = 20;
-	var b = 30;
-	olp = (a,b) =>{
-		console.log(a + b);
+window.addEventListener('load',function(){
+	let timer1 = new Timer(document.querySelector('.timer1'),10);
+	console.log(timer1);
+})
+
+class Timer{
+	constructor(el, time){
+			this.el = el;
+			this.time = time;
+			this._interval;
+			this.render();
+			this.start();
 	}
 
-	olp(a,b)
+	start(){
+			this._interval = setInterval(this.tick, 1000);
+	}
 
+	stop(){
+			window.clearInterval(this._interval);
+	}
+
+	tick = () => {
+			this.time--;
+			this.render();
+
+			if(this.time <= 0){
+					this.stop();
+			}
+	}
+
+	render(){
+			this.el.innerHTML = this.time;
+	}
 }
+
+export default Timer;

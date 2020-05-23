@@ -26,8 +26,6 @@ module.exports = conf;
     "build": "webpack --mode production"
 },
 
-Запуск: npm run build
-
 Далее установка babel
 npm install -D babel-loader @babel/core @babel/preset-env
 
@@ -38,4 +36,26 @@ npm install -D babel-loader @babel/core @babel/preset-env
 	]
 }
 Файл .babelrc может гибко настраиваться и вообще модули постоянно меняются т.к. экспериментальные функции JS любо вылетают из пользования либо становятся практикующимися. 
+
+Запуск: 
+npm run build - билд
+npm rub dev - разработка
+
+//////////////////////////////////////
+ES lint - плагин который приводит код к какому-то единообразию (актуально для командной разработки). 
+Кстати для Visual studio code нужно поставить расширение а потом еще установить его в систему через консоль
+npm i eslint -D
+
+нужно так же в корне создать файл настройки с пустым JSON внутри. Называется .eslintrc  а содержимое:
+{
+	"extends": "eslint: recommended",
+	"parser": "babel-eslint",
+	"globals": {
+		"window":true,
+		"document":true,
+		"console":true
+	}
+}
+И еще сверху установить в систему парсер линта от бэйбла
+npm i -D babel-eslint
 
