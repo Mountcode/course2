@@ -5,7 +5,7 @@ let conf = {
 	output: {
 		path: path.resolve(__dirname, './js'),
 		filename: 'main.js',
-		publicPath: 'js/'
+		publicPath: '/'
 	},
 	devServer:{
 		overlay: true
@@ -16,10 +16,16 @@ let conf = {
 				test: /\.js$/,
 				loader: 'babel-loader',
 				// exclude: 'node_modules'
+			},
+			{
+				test: /\.css$/,
+				use:[
+					'style-loader',
+					'css-loader',
+				]
 			}
 		]
 	}
-
 };
 
 module.exports = (env, options) => {
