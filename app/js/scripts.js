@@ -1,5 +1,7 @@
-// import '../less/style.css';
-console.log('sdf');
+console.log('sd2442f');
+import '../less/style.css';
+
+
 
 // window.addEventListener('load',function(){
 // 	let timer1 = new Timer(document.querySelector('.timer1'),10);

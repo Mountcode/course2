@@ -5,9 +5,9 @@ let conf = {
 	output: {
 		path: path.resolve(__dirname, './js'),
 		filename: 'main.js',
-		publicPath: '/'
+		publicPath: 'js/'
 	},
-	devServer:{
+	devServer:{ 
 		overlay: true
 	},
 	module:{

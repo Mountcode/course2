@@ -147,48 +147,10 @@ select:hover {
   background: linear-gradient(to right, #8f62d9 0%, #734bb3 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f62d9', endColorstr='#734bb3', GradientType=1);
 }
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latothin.woff') format("woff"), url('../fonts/lato/latothin.woff2') format("woff2"), url('../fonts/lato/latothin.ttf') format("truetype");
-  font-weight: 100;
-}
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latolight.woff') format("woff"), url('../fonts/lato/latolight.woff2') format("woff2"), url('../fonts/lato/latolight.ttf') format("truetype");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latoregular.woff') format("woff"), url('../fonts/lato/latoregular.woff2') format("woff2"), url('../fonts/lato/latoregular.ttf') format("truetype");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latoitalic.woff') format("woff"), url('../fonts/lato/latoitalic.woff2') format("woff2"), url('../fonts/lato/latoitalic.ttf') format("truetype");
-  font-weight: 300;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latomedium.woff') format("woff"), url('../fonts/lato/latomedium.woff2') format("woff2"), url('../fonts/lato/latomedium.ttf') format("truetype");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latosemibold.woff') format("woff"), url('../fonts/lato/latosemibold.woff2') format("woff2"), url('../fonts/lato/latosemibold.ttf') format("truetype");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Lato";
-  src: url('../fonts/lato/latobold.woff') format("woff"), url('../fonts/lato/latobold.woff2') format("woff2"), url('../fonts/lato/latobold.ttf') format("truetype");
-  font-weight: 600;
-}
 .main_font {
-  font-family: 'Lato';
   font-weight: 300;
 }
 .text_standart {
-  font-family: 'Lato';
   font-weight: 300;
   font-size: 16px;
   line-height: 125%;
@@ -260,7 +222,6 @@ strong {
   font-weight: 600;
 }
 .content_box {
-  font-family: 'Lato';
   font-weight: 300;
   font-size: 16px;
   line-height: 125%;
@@ -271,7 +232,6 @@ strong {
 }
 .form_control input,
 .form_control textarea {
-  font-family: 'Lato';
   font-weight: 300;
   font-size: 16px;
   line-height: 125%;
