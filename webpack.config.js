@@ -9,7 +9,7 @@ let conf = {
 	},
 	devServer:{ 
 		overlay: true
-	},
+	}, 
 	module:{
 		rules:[
 			{
