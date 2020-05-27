@@ -1,7 +1,11 @@
 export function rnds(){
-	return Math.floor(Math.random() * 20)	
+	setInterval(function tick() {
+		let changableNum = Math.floor(Math.random() * 20);
+		console.log('Compilator - ' + changableNum );
+	}, 8000); 
 };
 
-setInterval(function tick() {
-  console.log('Compilator is work - ' + rnds() );
-}, 8000);
+rnds();
+	
+
+
