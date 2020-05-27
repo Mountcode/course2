@@ -9,53 +9,16 @@ function wordsCount(str){
 	return wordCnt;
 }
 
-function getWords(str){
-	return{
-		words: normalizeText(str).split(" "),
-		[Symbol.iterator](){
-			let i = 0;
-			return{
-				next:() =>{
-					if(i < this.words.length){
-						return{
-							done:false,
-							value: this.words[i++]
-						};
-					}
-					else{
-						return{
-							done:true
-						};
-					}
-				}
-			}
-		}
+function* getWords(str){
+	let text = normalizeText(str) + " ";
+	let start = 0;
+	let current = text.indexOf(' ', start);
+
+	while(current !== -1){
+		yield text.substr(start, current - start);
+		start = current + 1;
+		current = text.indexOf(' ',start);
 	}
-
-
-	// let txt = normalizeText(str);
-	// let wordsObj = {
-	// 	to: normalizeText(str).split(" ").length,
-	// 	[Symbol.iterator]: function(){
-	// 			let current = 0;
-	// 			let stop = this.to;
-	// 			return {
-	// 					next(){
-	// 							if(current <= stop){
-	// 									return {
-	// 											done: false,
-	// 											value: current++
-	// 									}
-	// 							}
-	// 							else{
-	// 									return {
-	// 											done: true
-	// 									}
-	// 							}
-	// 					}
-	// 			}
-	// 	}
-	// }
 }
 
 
