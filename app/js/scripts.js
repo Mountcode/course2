@@ -1,17 +1,20 @@
-// import '../less/style.css';
+import '../less/style.css';
 import 'babel-polyfill';
-// import {rnds} from './codeChacker.js';
-import {wordsCount,getWords} from './homework.js';
 
 
-window.addEventListener('load', function(){
-	let txt = "  Всем gnbv привет! 333 Ура ура! ";
+let some ={
+	i: 2, 
+}
 
-	for(let some of getWords(txt)){
-		this.console.log(some);
-	}
-	
-});
+function double(n){
+	return this.i * this.i * n;
+}
+
+console.log(double.call(some, 3, 2));
+
+// console.log(double.apply(some, [3,2]));
+
+
 
 
 

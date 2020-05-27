@@ -1,0 +1,18 @@
+Call и Apply позволяют вызвать функцию с параметром указав в каком контексте ее вызывать.
+Apply Отличается тем что указывает параметры в массиве.
+
+//
+
+let some = {
+	i: 2
+}
+
+function double(n){
+	return this.i * this.i * n;
+}
+
+console.log(double.call(some, 3,2));
+
+или
+
+console.log(double.apply(some, [3,2]));
