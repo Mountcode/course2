@@ -2,6 +2,7 @@ import '../less/style.css';
 import 'babel-polyfill';
 
 
+
 let some ={
 	i: 2, 
 }
