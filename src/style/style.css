@@ -1,4 +1,18 @@
+@font-face{
+	font-family: 'Roboto'; 
+	src: url(../fonts/lato/latoregular.ttf) format('truetype');
+}
+
 body{
-	background:gray;
+	background:#fff;
 	padding: 100px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.logo{
+	background:url(../img/Desert.jpg);
+	height: 300px;
+	width: 300px;
+	display: block;
+	background-size: 100%;
 }

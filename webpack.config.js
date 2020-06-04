@@ -13,6 +13,12 @@ module.exports ={
 		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, './dist/js'),
 	},
+	resolve:{
+		extensions: ['.js','.json','.png','.css'],
+		alias:{
+			'@node_modules': path.resolve(__dirname, 'node_modules'),
+		}
+	},
 	plugins:[
 		new HTMLWebpackPlugin({
 			template: './index.html'
@@ -24,7 +30,16 @@ module.exports ={
 			{
 				test: /\.css$/,
 				use:['style-loader','css-loader']
+			},
+			{
+				test: /\.(png|jpg|svg"gif)$/,
+				use:['file-loader']
+			},
+			{
+				test: /\.(ttf|woff|woff2|otf|eot)$/,
+				use:['file-loader']
 			}
+
 		]
 	}
 }

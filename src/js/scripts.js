@@ -1,6 +1,9 @@
-// import 'Vue.js';
-// import 'babel-polyfill';
+// import './vue.js';
+import 'babel-polyfill';
+import * as $ from 'jquery'
+import '@node_modules/normalize-css/normalize.css'
 import '../style/style.css'
+import WebpackLogo from '../img/Desert.jpg'
 
 new Vue({
 	el: '.sample',
@@ -9,7 +12,7 @@ new Vue({
 	}
 });
 
-console.log('2!!3!2!!!s3345');
+
 
 
 

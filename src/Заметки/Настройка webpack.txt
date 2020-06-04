@@ -73,4 +73,14 @@ npm i -D clean-webpack-plugin
 Для интеграции в проект CSS нам нужно скачать 2 лоадера
 npm i -D style-loader css-loader
 
+///////////////////////////////////
+Работа с файлами
+npm i file-loader -D
+
+///////////////////////////////////
+Это актуальный нормалайз
+npm i normalize.css
+
+Добавляем его в css
+@import "../../node_modules/normalize-css/normalize.css";
 
