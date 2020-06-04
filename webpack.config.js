@@ -8,10 +8,14 @@ let conf = {
 		publicPath: 'js/'
 	},
 	devServer:{ 
-		overlay: true
-	}, 
+		overlay: true,
+	},
 	module:{
 		rules:[
+			{
+				test: /\.html$/i,
+				use: 'raw-loader',
+			},
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
@@ -27,6 +31,7 @@ let conf = {
 		]
 	}
 };
+
 
 module.exports = (env, options) => {
 	conf.devtool = options.mode === "production" ?
