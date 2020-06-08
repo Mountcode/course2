@@ -1,8 +1,8 @@
 const path = require('path'); 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} =  require('clean-webpack-plugin');
-// const CopyWebpackPlugin =  require('copy-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin =  require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports ={
 	context: path.resolve(__dirname, 'src'),
@@ -41,6 +41,9 @@ module.exports ={
 						to: path.resolve(__dirname, 'dist/img')
 					}
 				],
+		}),
+		new MiniCssExtractPlugin({
+			filename: '[name].[contenthash].js',
 		})
 	],
 	module: {
