@@ -84,3 +84,10 @@ npm i normalize.css
 Добавляем его в css
 @import "../../node_modules/normalize-css/normalize.css";
 
+///////////////////////////////////
+Копирование и перенос файлов
+npm i -D copy-webpack-plugin
+
+///////////////////////////////////
+Работа с css. Минификация
+npm i -D mini-css-extract-plugin
