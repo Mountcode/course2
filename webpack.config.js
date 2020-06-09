@@ -3,16 +3,37 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} =  require('clean-webpack-plugin');
 const CopyWebpackPlugin =  require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+
+
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev
+
+const optimization = () =>{
+	const config = {
+		splitChunks:{
+			chunks: 'all'
+		}
+	}
+	if (isProd){
+		config.minimizer = [
+			new OptimizeCssAssetsPlugin(),
+			new TerserWebpackPlugin()
+		]
+	}
+	return config;
+}
 
 module.exports ={
 	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
 	entry: {
-		main: './js/scripts.js',
-		// vue: './js/vue.js'
+		// vue: './js/vue.js',
+		main: './js/index.js'
 	},
 	output: {
-		filename: '[name].[contenthash].js',
+		filename: '[name].[hash].js',
 		path: path.resolve(__dirname, './dist/js'),
 	},
 	resolve:{
@@ -21,17 +42,13 @@ module.exports ={
 			'@node_modules': path.resolve(__dirname, 'node_modules'),
 		}
 	},
-	optimization:{
-		splitChunks:{
-			chunks: 'all'
-		}
-	},
+	optimization:optimization(),
 	devServer:{
-		port: 4200
+		port: 4200,
 	},
 	plugins:[
 		new HTMLWebpackPlugin({
-			template: './index.html'
+			template: './index.html',
 		}),
 		new CleanWebpackPlugin(),
 		new CopyWebpackPlugin({
@@ -43,14 +60,51 @@ module.exports ={
 				],
 		}),
 		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash].js',
+			filename: '[name].[hash].css'
 		})
 	],
 	module: {
 		rules:[
 			{
 				test: /\.css$/,
-				use:['style-loader','css-loader']
+				use:[
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options:{
+							hmr:isDev,
+							reload:true
+						}
+					},
+					'css-loader'
+				]
+			},
+			{
+				test: /\.less$/,
+				use:[
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options:{
+							hmr:isDev,
+							reload:true
+						}
+					},
+					'css-loader',
+					'less-loader'
+				]
+			},
+			{
+				test: /\.s[ac]ss$/,
+				use:[
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options:{
+							hmr:isDev,
+							reload:true
+						}
+					},
+					'css-loader',
+					'sass-loader'
+				]
 			},
 			{
 				test: /\.(png|jpg|svg"gif)$/,
@@ -59,7 +113,20 @@ module.exports ={
 			{
 				test: /\.(ttf|woff|woff2|otf|eot)$/,
 				use:['file-loader']
-			}
+			},
+			{
+				test: /\.js$/,
+				exclude:/node-modules/,
+				loader: 'babel-loader',
+				// loader:{
+				// 	loader: 'babel-loader',
+				// 	options:{
+				// 		presets:[
+				// 			'@babel/preset-env'
+				// 		]
+				// 	}
+				// }
+			},
 		]
 	}
 }

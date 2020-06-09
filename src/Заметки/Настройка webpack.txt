@@ -26,8 +26,10 @@ module.exports = conf;
     "build": "webpack --mode production"
 },
 
+/////////////////////////////////////////
+
 Далее установка babel
-npm install -D babel-loader @babel/core @babel/preset-env
+npm i -D babel-loader @babel/core @babel/preset-env
 
 Затем,для подключения модулей, создать файл настройки babel в корне - .babelrc с содердимым:
 {
@@ -36,6 +38,12 @@ npm install -D babel-loader @babel/core @babel/preset-env
 	]
 }
 Файл .babelrc может гибко настраиваться и вообще модули постоянно меняются т.к. экспериментальные функции JS любо вылетают из пользования либо становятся практикующимися. 
+
+
+Polyfil
+npm i -D @babel/polyfill
+
+/////////////////////////////////////////
 
 Запуск: 
 npm run build - билд
@@ -89,5 +97,28 @@ npm i normalize.css
 npm i -D copy-webpack-plugin
 
 ///////////////////////////////////
-Работа с css. Минификация
+Работа с css. Минификация.
+
+Объединение и вывод:
 npm i -D mini-css-extract-plugin
+
+Минификация CSS:
+npm i optimize-css-assets-webpack-plugin -D
+
+///////////////////////////////////
+
+Работа с less
+npm i -D less-loader
+npm i -D less
+
+Sass
+npm i -D node-sass sass-loader
+
+
+//////////////////////////////////
+Минификация JS:
+npm i terser-webpack-plugin -D
+
+///////////////////////////////////
+спомогательный плагин. определяет операционку и задачет переменной значение на билд или девелопмент версию, во время запуска вепбака. что бы потом пользоваться этим флагом. Настраивается в packeje.json в scripts
+npm i -D cross-env
