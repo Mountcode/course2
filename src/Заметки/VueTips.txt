@@ -60,3 +60,18 @@ v-on:click="addOne($event, 5,'передаем строку')"
 Модификаторы дериктив
 
 v-on:click.prevent=""    // равносильно вызову функции с кодом e.preventDefault
+
+v-on:keyup.enter="alertvalue" //Выполнить функцию только по нажатию Enter
+v-on:keyup.enter.space="alertvalue" //Выполнить функцию только по нажатию Enter и space
+
+///////////////////////////
+События клавиатуры
+<input type="text" v-on:keyup="alertvalue">
+/
+alertvalue: function(e){
+		if(e.keyCode == 13){ //Выполнить при нажатии Enter
+				alert(e.target.value);
+		}
+}
+/
+

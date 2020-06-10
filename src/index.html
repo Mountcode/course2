@@ -16,6 +16,10 @@
                 X: {{x}} \ Y: {{y}}
                 <span v-on:mousemove.stop="">Не изменять</span>
             </h2>
+
+            <hr>
+
+            <input type="text" v-on:keyup.enter.alt="alertvalue">
         </div>
     </div>
     <script src="../../src/js/vue.js"></script>
@@ -27,12 +31,12 @@
                y: 0
             },
             methods:{
-                noclick: function(e){
-                    e.preventDefault();
-                },
                 handleMouseMove: function(){
                     this.x = event.clientX
                     this.y = event.clientY
+                },
+                alertvalue: function(e){
+                    alert(e.target.value);
                 }
             }
         })
