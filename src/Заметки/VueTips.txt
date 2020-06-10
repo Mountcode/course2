@@ -1,0 +1,62 @@
+Основа конструктора Vue
+new Vue({
+		el: '#app',
+		data:{
+				url: 'https://google.com'
+		},
+		methods:{
+				changeName: function(event){
+						this.name = event.target.value;
+				},
+		}
+})
+
+/////////////////////////////////////
+
+Примеры дериктив
+v-bind - для описания динамических значений внутри атрибутов
+
+<a v-bind:href="url">{{ url }}</a>
+
+////////////
+v-html - вывод html элементов
+<h2 v-html="link"></h2> 
+/
+data:{
+		link: '<a href="https://google.com">google</a>'
+},
+/
+
+///////////
+v-on - обработка события
+v-on:click="addOne" - на клик обращение к методу addOne
+
+<h2>Counter = {{count}} </h2>
+<input type="submit" value="Add" v-on:click="addOne">
+/
+метод 
+addOne: function(){
+		this.count++
+}
+/
+Так же можно писать метод инлайном простым JS
+<h2>Counter = {{count2}} </h2>
+<input type="submit" value="Add" v-on:click="count2++">
+
+Можно передать параметры
+<input type="submit" value="Add" v-on:click="addOne(5)">
+
+addOne: function(num){
+		this.count+=num
+}
+
+Если вместе с параметрами нужно передать стандартный параметр e то его нужно обозначить ($event):
+
+v-on:click="addOne($event, 5,'передаем строку')"
+
+//////////
+
+///////////////////////////
+Модификаторы дериктив
+
+v-on:click.prevent=""    // равносильно вызову функции с кодом e.preventDefault

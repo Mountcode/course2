@@ -9,12 +9,13 @@
 <body>
     <div class="container">
         <div id="app">
-            <input type="text" v-on:input="changeName">
-            <h1>Hello {{ name }}</h1>
-            <h1>sum: {{ tt + 60}} </h1>
-            <h1>mth: {{ sayHello() }}</h1>
-            <h1>ststmtnt: {{isOk ? 'Im ok' : 'not ok' }} </h1>
-            <h1>funt: {{string.split('').reverse().join('') }} </h1>
+            <h2>
+                <a v-on:click.prevent="" href="http://google.com" target="blank_">google</a>
+            </h2>
+            <h2 v-on:mousemove="handleMouseMove">
+                X: {{x}} \ Y: {{y}}
+                <span v-on:mousemove.stop="">Не изменять</span>
+            </h2>
         </div>
     </div>
     <script src="../../src/js/vue.js"></script>
@@ -22,17 +23,16 @@
         new Vue({
             el: '#app',
             data:{
-                name: 'Vue!',
-                tt: 10,
-                isOk: 1,
-                string: 'myname KIKI'
+               x: 0,
+               y: 0
             },
             methods:{
-                changeName: function(event){
-                    this.name = event.target.value;
+                noclick: function(e){
+                    e.preventDefault();
                 },
-                sayHello: function(){
-                    return 'hello'
+                handleMouseMove: function(){
+                    this.x = event.clientX
+                    this.y = event.clientY
                 }
             }
         })
