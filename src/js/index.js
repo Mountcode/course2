@@ -4,7 +4,7 @@ import '@node_modules/normalize-css/normalize.css'
 import '../style/style.css'
 import '../style/main.less'
 import WebpackLogo from '../img/Desert.jpg'
-// import './vue.js';
+import './vue.js';
 
 
 

@@ -107,8 +107,39 @@ module.exports ={
 				]
 			},
 			{
-				test: /\.(png|jpg|svg"gif)$/,
-				use:['file-loader']
+				test:  /\.(jpe?g|png|gif|ico)$/i,
+				use:[{
+					loader: "file-loader?name=[name].[hash].[ext]",
+					options: {
+							name: '[name].[ext]',
+							outputPath: 'img/'
+					}
+				}]
+			},
+			{
+					test: /\.(html)$/,
+					loader: 'html-loader',
+					options: {
+						attributes: {
+							list: [
+								{
+									tag: 'img',
+									attribute: 'src',
+									type: 'src',
+								},
+								{
+									tag: 'img',
+									attribute: 'data-src',
+									type: 'src',
+								},
+								{
+									tag: 'link',
+									attribute: 'href',
+									type: 'src',
+								},
+							],
+					},
+				},
 			},
 			{
 				test: /\.(ttf|woff|woff2|otf|eot)$/,
@@ -118,52 +149,7 @@ module.exports ={
 				test: /\.js$/,
 				exclude:/node-modules/,
 				loader: 'babel-loader',
-				// loader:{
-				// 	loader: 'babel-loader',
-				// 	options:{
-				// 		presets:[
-				// 			'@babel/preset-env'
-				// 		]
-				// 	}
-				// }
 			},
 		]
 	}
 }
-
-
-
-
-// let conf = { 
-// 	devServer:{ 
-// 		overlay: true,
-// 	},
-// 	module:{
-// 		rules:[
-// 			{
-// 				test: /\.html$/i,
-// 				use: 'raw-loader',
-// 			},
-// 			{
-// 				test: /\.js$/,
-// 				loader: 'babel-loader',
-// 				// exclude: 'node_modules'
-// 			},
-// 			{
-// 				test: /\.css$/,
-// 				use:[
-// 					'style-loader',
-// 					'css-loader',
-// 				]
-// 			}
-// 		]
-// 	}
-// };
-
-
-// module.exports = (env, options) => {
-// 	conf.devtool = options.mode === "production" ?
-// 								 false:
-// 								 "eval-cheap-module-source-map";
-// 	return conf;
-// };

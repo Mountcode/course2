@@ -3,23 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Полигон Webpack lesson 1:45</title>
+    <title>Полигон Vue 1-13</title>
 </head>
 
 <body>
     <div class="container">
         <div id="app">
-            <h2>
-                <a v-on:click.prevent="" href="http://google.com" target="blank_">google</a>
-            </h2>
-            <h2 v-on:mousemove="handleMouseMove">
-                X: {{x}} \ Y: {{y}}
-                <span v-on:mousemove.stop="">Не изменять</span>
-            </h2>
-
-            <hr>
-
-            <input type="text" v-on:keyup.enter.alt="alertvalue">
+        <div v-if="issv">
+            <h2>1111</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, dolor.</p>
+        </div>
+        <div v-else>
+            <h2>222</h2>
+            <p>Lorem ipsum dolor sit amet consectetur </p>
+        </div>
         </div>
     </div>
     <script src="../../src/js/vue.js"></script>
@@ -27,17 +24,7 @@
         new Vue({
             el: '#app',
             data:{
-               x: 0,
-               y: 0
-            },
-            methods:{
-                handleMouseMove: function(){
-                    this.x = event.clientX
-                    this.y = event.clientY
-                },
-                alertvalue: function(e){
-                    alert(e.target.value);
-                }
+                issv: 1,
             }
         })
     </script>

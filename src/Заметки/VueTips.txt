@@ -10,8 +10,29 @@ new Vue({
 				},
 		}
 })
+////////////
 
-/////////////////////////////////////
+computed - поле, более оптимизированное для вызова методов:
+new Vue({
+		el: '#app',
+		data:{
+				isActive:false,
+				color: 'yellow'
+		},
+		computed:{
+				getCssClasses: function(){
+						return{
+								'red': this.isActive,
+								'green': !this.isActive
+						}
+				}
+		},
+		methods:{
+		}
+})
+
+
+////////////////////////////////////////////////////////////////
 
 Примеры дериктив
 v-bind - для описания динамических значений внутри атрибутов
@@ -56,7 +77,41 @@ v-on:click="addOne($event, 5,'передаем строку')"
 
 //////////
 
-///////////////////////////
+v-model - это т.н. Two way binding. суть в том что организуется двустороняя связь инпута с элементом. Значение элемента лежит в инпуте. при изменении инпута значение элемента меняется.
+
+<input type="text" v-model="inputValue">
+<h1> {{inputValue}} </h1>
+
+//////////
+v-if - условие булево
+
+<h2 v-if="isVis">Visible</h2>
+<h2 v-else>Invisible</h2>
+<input type="submit" @click="isVis = !isVis">
+
+или else if
+
+<h2 v-if="type === 'a'">A</h2>
+<h2 v-else-if="type === 'b'">B</h2>
+<h2 v-else-if="type === 'c'">C</h2>
+<h2 v-else>Not</h2>
+<hr>
+<input type="text" v-model="type">
+
+//////////
+
+Группировка условий
+<template v-if="issv">
+		<h2>1111</h2>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, dolor.</p>
+</template>
+<template v-else>
+		<h2>222</h2>
+		<p>Lorem ipsum dolor sit amet consectetur </p>
+</template>
+
+
+//////////////////////////////////////////////////////
 Модификаторы дериктив
 
 v-on:click.prevent=""    // равносильно вызову функции с кодом e.preventDefault
@@ -64,7 +119,10 @@ v-on:click.prevent=""    // равносильно вызову функции �
 v-on:keyup.enter="alertvalue" //Выполнить функцию только по нажатию Enter
 v-on:keyup.enter.space="alertvalue" //Выполнить функцию только по нажатию Enter и space
 
-///////////////////////////
+v-model.lazy - изменение только при смене фокуса
+
+
+//////////////////////////////////////////////////////
 События клавиатуры
 <input type="text" v-on:keyup="alertvalue">
 /
@@ -73,5 +131,77 @@ alertvalue: function(e){
 				alert(e.target.value);
 		}
 }
-/
 
+
+
+
+//////////////////////////////////////////////////////
+Ярлыки
+
+Позволяют заменять дериктивы на другие варианты записи
+<a v-bind:href="url" >google</a>
+===
+<a :href="url" >google</a>
+
+или
+
+<input type="submit" v-on:click="counter++" value="+">
+===
+<input type="submit" @click="counter++" value="+">
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////
+Куски кода - Примеры
+
+//////////
+тоггл класса
+<div class="sq" @click="isActive = !isActive" :class="{'red': isActive}"></div>
+
+new Vue({
+		el: '#app',
+		data:{
+				isActive:false
+		}
+})
+
+//////////
+
+Передача параметра (класса) v-model
+<div  class="sq" :class="color"></div>
+<input type="text" v-model="color">
+
+//////////
+Объединение двух методов выше для условий
+<div  class="sq" :class="[color, {'red': isActive}]"></div>
+<input type="text" v-model="color">
+
+//////////
+писать стили инлайном так. Плюс можно их совмещать с методами
+<div class="sq" :style="[sqClasses,{'width': height + 'px'}]"></div>
+<input type="text" v-model="color">
+<input type="text" v-model="height">
+
+new Vue({
+		el: '#app',
+		data:{
+				isActive:false,
+				color: 'blue',
+				height: '100'
+		},
+		computed:{
+				sqClasses: function(){
+						return{
+						'background': this.color,
+						'height': this.height + 'px'
+						}
+				}
+		}
+});
+
+//////////
