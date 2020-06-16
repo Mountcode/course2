@@ -9,44 +9,52 @@
 <body>
     <div class="container">
         <div id="app">
-           <h2>CNT {{counter}} / CNT2 {{counter2}} </h2>
-           <h3> Result   </h3>
-           <h3> computedResult {{ computedResult }}  </h3>
-           <input type="submit" @click="pl" value="plus">
-           <input type="submit" @click="mn" value="minus">
-           <input type="submit" @click="counter2++" value="plus2">
+           <h2 ref="headeing"> {{title}} </h2>
+           <span @click="title = 'title2'">UU</span>
+           <span @click="dst">UU</span>
         </div>
+        <hr>
+
     </div>
     <script src="../../src/js/vue.js"></script>
     <script>
-        new Vue({
+        var vue1 = new Vue({
             el: '#app',
             data:{
-               counter: 0,
-               counter2: 0,
-               cnd: 'Less then three'
+               title: 'Vue 1'
+            },
+            beforeCreate: function(){
+                console.log('beforeCreate')
+            },
+            created: function(){
+                console.log('created')
+            },
+            beforeMount: function(){
+                console.log('beforeMount')
+            },
+            mounted: function(){
+                console.log('mounted')
+            },
+            beforeUpdate: function(){
+                console.log('beforeUpdate')
+            },
+            updated: function(){
+                console.log('updated')
+            },
+            beforeDestroy:function(){
+                console.log('beforeDestroy')
+            },
+            destroyed:function(){
+                console.log('destroed')
             },
             methods:{
-                pl: function(){
-                    this.counter++
-
-                },
-                mn: function(){
-                    this.counter--
-                },
-            },
-            computed:{
-                computedResult: function(){
-                    console.log('computed result it')
-                    return this.counter > 3 ? 'More then 3' : 'Less then three'
-                }
-            },
-            watch:{
-                counter: function(val){
-                    console.log('erwer' + val)
+                dst:function(){
+                    this.$destroy();
                 }
             }
         })
+        
+     
     </script>
 </body>
 
